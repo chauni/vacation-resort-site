@@ -85,8 +85,9 @@
                       min="1"
                     />
                   </p>
+
+                  <p>Room Type:</p>
                   <div class="form-check">
-                    <p>Room Type:</p>
                     <label class="form-check-label" for="queenRoomOption"
                       >Queen Suite | Max Occupancy: 5 (includes rollaway)</label
                     >
@@ -96,6 +97,8 @@
                       class="form-check-input"
                       name="roomOption"
                     />
+                  </div>
+                  <div class="form-check">
                     <label class="form-check-label" for="kingRoomOption">
                       King Suite | Max Occpancy: 2</label
                     >
@@ -105,6 +108,8 @@
                       class="form-check-input"
                       name="roomOption"
                     />
+                  </div>
+                  <div class="form-check">
                     <label class="form-check-label" for="twobedRoomOption"
                       >2-Bedroom Suite | Max Occupancy: 6 (includes sleeper
                       sofa)</label
@@ -136,9 +141,8 @@
                       min="0"
                     />
                   </p>
+                  <p>Discounts (if applicable):</p>
                   <div class="form-check">
-                    <p>Discounts (if applicable):</p>
-                    <!-- not working idk
                     <label class="form-check-label" for="noneDiscount"
                       >None</label
                     >
@@ -148,6 +152,8 @@
                       class="form-check-input"
                       name="discountOption"
                     />
+                  </div>
+                  <div class="form-check">
                     <label class="form-check-label" for="seniorDiscount">
                       AAA/Senior (10%)</label
                     >
@@ -157,6 +163,8 @@
                       class="form-check-input"
                       name="discountOption"
                     />
+                  </div>
+                  <div class="form-check">
                     <label class="form-check-label" for="militaryDiscount"
                       >Military (20%)</label
                     >
@@ -165,16 +173,48 @@
                       id="militaryDiscount"
                       class="form-check-input"
                       name="discountOption"
-                    />-->
+                    />
                   </div>
                 </fieldset>
-
-                <div class="row justify-content-center">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
               </div>
             </div>
           </form>
+        </div>
+        <div class="col-5">
+          <h1>Estimated Price Quote</h1>
+          <hr />
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>Room Cost</td>
+                <td>$<span id="roomCost">0.00</span></td>
+              </tr>
+              <tr>
+                <td>Discount(s)</td>
+                <td>
+                  <p id="discountsApplied"></p>
+                  %
+                </td>
+              </tr>
+              <tr>
+                <td>Discounted Cost</td>
+                <td>$<span id="discountAmount">0.00</span></td>
+              </tr>
+              <tr>
+                <td>Tax</td>
+                <td>$<span id="taxAmount">0.00</span></td>
+              </tr>
+              <tr>
+                <td>Total Cost</td>
+                <td>$<span id="totalCost">0.00</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="row justify-content-center">
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -184,6 +224,6 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-    <script src="./scripts/.index.js"></script>
+    <script src="./scripts/overnight-stay.js"></script>
   </body>
 </html>
