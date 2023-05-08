@@ -2,13 +2,9 @@
 
 //gather inputs
 
-const checkInDateEl = document.getElementById("checkInDate").value;
+const checkInDateEl = document.getElementById("checkInDate");
 
 const stayLengthEl = document.getElementById('stayLength');
-
-const queenRoomEl = document.getElementById('queenRoomOption');
-const kingRoomEl = document.getElementById('kingRoomOption');
-const twobedRoomEl = document.getElementById('twobedRoomOption');
 
 const numOfAdultsEl = document.getElementById('numOfAdults');
 const numOfChildrenEl = document.getElementById('numOfChildren');
@@ -29,10 +25,21 @@ submitBtn.onclick = onSubmitBtnClicked;
 
 // perform calculation
 
-function onSubmitBtnClicked () {
-    console.log('hi')
+function getRoomType(){
+    const queenRoomEl = document.getElementById('queenRoomOption');
+    const kingRoomEl = document.getElementById('kingRoomOption');
+    const twobedRoomEl = document.getElementById('twobedRoomOption');
 
-    roomCostEl.innerHTML = roomRate.toFixed(2);
+    let roomType;
+    if (queenRoomEl.checked) {
+        roomType == 'queen'
+    } else if (kingRoomEl.checked) {
+        roomType == 'king'
+    } else if (twobedRoomEl.checked) {
+        roomType == 'suite'
+    }
+
+    return roomType
 }
 
 function getRoomRate(checkInDate, roomType) { 
@@ -42,11 +49,11 @@ function getRoomRate(checkInDate, roomType) {
     let roomRate = 150;
     if (onSeason) {
         roomRate = 250
-        if (roomType == twobedRoomEl.checked) {
+        if (roomType == 'suite') {
             roomRate = 350
         }
     } else {
-        if (roomType == twobedRoomEl.checked) {
+        if (roomType == 'suite') {
             roomRate = 210
         }
     }
@@ -54,7 +61,15 @@ function getRoomRate(checkInDate, roomType) {
      return roomRate
 }
 
-const onSeasonDate = new Date('2023-07-01')
-const offSeasonDate = new Date ('2023-02-01')
-console.log(`${onSeasonDate} ${twobedRoomEl.checked}`);
+function onSubmitBtnClicked () {
+    console.log('hi')
+
+    const userDate = checkInDateEl.value
+    const checkInDate = new Date(userDate)
+    const roomType = getRoomType();
+    const roomRate = getRoomRate(checkInDate, roomType);
+
+    
+    console.log(roomRate)
+}
 
